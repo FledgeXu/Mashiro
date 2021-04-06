@@ -1,12 +1,24 @@
 import "./App.sass";
-import { BiFolderOpen, BiHistory, BiCalendar } from "react-icons/bi";
+import { BiFolderOpen, BiHistory, BiCalendar, BiHome } from "react-icons/bi";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import Subscription from "./Subscription";
 import History from "./History";
 import Today from "./Today";
+import { useEffect, useState } from "react";
+import { BangumiMeta } from "./type";
 function App() {
   const sidebarIconSize = 42;
+  const [bangumiMeta, setBangumiMeta] = useState<BangumiMeta>({ bangumis: [] });
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("/bangumi/meta.json");
+      const meta = await response.json();
+      setBangumiMeta(meta);
+      console.log(meta);
+    };
+    fetchData();
+  }, []);
   return (
     <BrowserRouter>
       <div className="App">
@@ -42,6 +54,11 @@ function App() {
         <div className="sidebar card">
           <ul className="sidebar-menu">
             <li>
+              <Link to="/" className="sidebar-link">
+                <BiHome size={sidebarIconSize} />
+              </Link>
+            </li>
+            <li>
               <Link to="/subscription" className="sidebar-link">
                 <BiFolderOpen size={sidebarIconSize} />
               </Link>
@@ -70,7 +87,7 @@ function App() {
               <Today />
             </Route>
             <Route path="/">
-              <Home />
+              <Home bangumis={bangumiMeta.bangumis} />
             </Route>
           </Switch>
         </div>
