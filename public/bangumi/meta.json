@@ -1,7 +1,7 @@
 {
   "bangumis": [
     {
-      "id": 1,
+      "id": 0,
       "name": "BEASTARS 2nd Season",
       "nameCN": "",
       "bangumiURL": "https://bangumi.tv/subject/297224",
@@ -11,7 +11,7 @@
       "updateDate": "Tue Apr 06 2021 14:50:09 GMT+0800 (China Standard Time)",
       "sources": [
         {
-          "id": 1,
+          "id": 0,
           "fansub": "Sakurato",
           "updateDate": "Tue Apr 06 2021 14:50:09 GMT+0800 (China Standard Time)",
           "folder": "/bangumi/assets/videos/bestars"

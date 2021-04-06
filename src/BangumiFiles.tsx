@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BiFile } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { SourceFiles } from "./type";
 
@@ -19,9 +20,9 @@ export default function BangumiFiles(props: BangumiFilesProps) {
   return (
     <div>
       {files.map((file) => (
-        <a href={folder + "/" + file.name} className="panel-block">
+        <a href={file.location} className="panel-block">
           <span className="panel-icon">
-            <i className="fas fa-book" aria-hidden="true"></i>
+            <BiFile />
           </span>
           {file.name}
         </a>

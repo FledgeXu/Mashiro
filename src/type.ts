@@ -1,6 +1,7 @@
 type location = string;
 export interface SourceFiles {
   name: string;
+  location: string;
   hashType: string;
   hash: string;
 }

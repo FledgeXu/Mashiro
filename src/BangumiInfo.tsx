@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, Route, Switch, useParams } from "react-router-dom";
+import { Link, Route, useParams } from "react-router-dom";
 import { Bangumi } from "./type";
 import "./BangumiInfo.sass";
-import { BiFile } from "react-icons/bi";
 import BangumiFiles from "./BangumiFiles";
 
 interface BangumiInfoProps {
@@ -14,6 +13,7 @@ interface BangumiInfoParams {
 export default function BangumiInfo(props: BangumiInfoProps) {
   const params = useParams<BangumiInfoParams>();
   const [bangumi, setBangumi] = useState<Bangumi>();
+  const [selectPanel, SetSelectPanel] = useState<number>(-1);
   const bangumiName = () => {
     return bangumi?.nameCN === "" ? bangumi?.name : bangumi?.nameCN;
   };
@@ -65,7 +65,13 @@ export default function BangumiInfo(props: BangumiInfoProps) {
               <p className="panel-tabs">
                 {bangumi &&
                   bangumi.sources.map((source) => (
-                    <Link to={"/info/" + bangumi.id + "/" + source.id}>
+                    <Link
+                      to={"/info/" + bangumi.id + "/" + source.id}
+                      className={source.id === selectPanel ? "is-active" : ""}
+                      onClick={() => {
+                        SetSelectPanel(source.id);
+                      }}
+                    >
                       {source.fansub}
                     </Link>
                   ))}
