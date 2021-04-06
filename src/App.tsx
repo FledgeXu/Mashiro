@@ -28,11 +28,11 @@ function App() {
           role="navigation"
           aria-label="main navigation"
         >
-          <div className="navbar-brand">
-            <div className="navbar-brand ">
+          <Link to="/">
+            <div className="navbar-brand">
               <div className="navbar-item nav-logo">Mashiro</div>
             </div>
-          </div>
+          </Link>
           <div className="navbar-menu">
             <div className="navbar-end">
               <div className="navbar-item">
