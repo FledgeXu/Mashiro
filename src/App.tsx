@@ -5,8 +5,9 @@ import Home from "./Home";
 import Subscription from "./Subscription";
 import History from "./History";
 import Today from "./Today";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BangumiMeta } from "./type";
+import BangumiInfo from "./BangumiInfo";
 function App() {
   const sidebarIconSize = 42;
   const [bangumiMeta, setBangumiMeta] = useState<BangumiMeta>({ bangumis: [] });
@@ -86,6 +87,10 @@ function App() {
             <Route path="/today">
               <Today />
             </Route>
+            <Route
+              path="/info/:id"
+              children={<BangumiInfo bangumis={bangumiMeta.bangumis} />}
+            ></Route>
             <Route path="/">
               <Home bangumis={bangumiMeta.bangumis} />
             </Route>

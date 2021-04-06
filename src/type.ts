@@ -1,5 +1,11 @@
 type location = string;
+export interface SourceFiles {
+  name: string;
+  hashType: string;
+  hash: string;
+}
 export interface BangumiSource {
+  id: number;
   fansub: string;
   updateDate: string;
   folder: location;

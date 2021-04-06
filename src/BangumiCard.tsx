@@ -18,7 +18,7 @@ export function BangumiCard(props: BangumiCardProps) {
         </header>
         <div className="card-image">
           <figure className="image is-2by3">
-            <img src={"/bangumi" + bangumi.coverPhoto} alt={bangumiName()} />
+            <img src={bangumi.coverPhoto} alt={bangumiName()} />
           </figure>
         </div>
         <div className="card-content">
