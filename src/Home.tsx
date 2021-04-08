@@ -9,11 +9,14 @@ export default function Home(props: HomeProps) {
   const { bangumis } = props;
   return (
     <div className="home">
-      {bangumis.map((bangumi) => (
-        <div className="show-card" key={bangumi.id}>
-          <BangumiCard key={bangumi.id} bangumi={bangumi} />
-        </div>
-      ))}
+      <p className="title is-2 is-spaced">Home</p>
+      <div className="main">
+        {bangumis.map((bangumi) => (
+          <div className="show-card" key={bangumi.id}>
+            <BangumiCard key={bangumi.id} bangumi={bangumi} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
