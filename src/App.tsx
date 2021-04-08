@@ -70,7 +70,7 @@ function App() {
                     onKeyPress={(event) =>
                       event.key === "Enter" && handlerSearch()
                     }
-                    placeholder="Find a repository"
+                    placeholder="Find Bangumis"
                   />
                 </div>
                 <div className="control">
