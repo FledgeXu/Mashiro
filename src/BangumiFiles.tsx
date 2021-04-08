@@ -20,7 +20,7 @@ export default function BangumiFiles(props: BangumiFilesProps) {
   return (
     <div>
       {files.map((file) => (
-        <a href={file.location} className="panel-block">
+        <a href={file.location} className="panel-block" target="view_window">
           <span className="panel-icon">
             <BiFile />
           </span>

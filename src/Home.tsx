@@ -1,4 +1,4 @@
-import { BangumiCard } from "./BangumiCard";
+import BangumiCard from "./BangumiCard";
 import "./Home.sass";
 import { Bangumi } from "./type";
 

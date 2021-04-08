@@ -5,7 +5,7 @@ import { Bangumi } from "./type";
 interface BangumiCardProps {
   bangumi: Bangumi;
 }
-export function BangumiCard(props: BangumiCardProps) {
+export default function BangumiCard(props: BangumiCardProps) {
   const { bangumi } = props;
   const bangumiName = () => {
     return bangumi.nameCN === "" ? bangumi.name : bangumi.nameCN;
