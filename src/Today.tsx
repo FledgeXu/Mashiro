@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import BangumiCard from "./BangumiCard";
 import "./Today.sass";
 import { Bangumi } from "./type";

@@ -1,5 +1,5 @@
 import "./App.sass";
-import { BiFolderOpen, BiHistory, BiCalendar, BiHome } from "react-icons/bi";
+import { BiCalendar, BiHome } from "react-icons/bi";
 import { Link, Route, Switch, useHistory } from "react-router-dom";
 import Home from "./Home";
 import Today from "./Today";
