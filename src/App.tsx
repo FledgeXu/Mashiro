@@ -2,7 +2,6 @@ import "./App.sass";
 import { BiFolderOpen, BiHistory, BiCalendar, BiHome } from "react-icons/bi";
 import { Link, Route, Switch, useHistory } from "react-router-dom";
 import Home from "./Home";
-import Subscription from "./Subscription";
 import Today from "./Today";
 import { useEffect, useState } from "react";
 import { Bangumi, BangumiMeta } from "./type";
@@ -99,11 +98,6 @@ function App() {
             </Link>
           </li>
           <li>
-            <Link to="/subscription" className="sidebar-link">
-              <BiFolderOpen size={sidebarIconSize} />
-            </Link>
-          </li>
-          <li>
             <Link to="/today" className="sidebar-link">
               <BiCalendar size={sidebarIconSize} />
             </Link>
@@ -114,9 +108,6 @@ function App() {
         <Switch>
           <Route path="/search">
             <SearchPage results={searchResult} />
-          </Route>
-          <Route path="/subscription">
-            <Subscription />
           </Route>
           <Route path="/today">
             <Today />
