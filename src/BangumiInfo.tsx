@@ -57,7 +57,9 @@ export default function BangumiInfo(props: BangumiInfoProps) {
               <footer className="card-footer">
                 <p className="card-footer-item">
                   <span>
-                    <a href={bangumi?.bangumiURL}>Bangumi</a>
+                    <a href={bangumi?.bangumiURL} target="bangumi">
+                      Bangumi
+                    </a>
                   </span>
                 </p>
                 <p className="card-footer-item">
