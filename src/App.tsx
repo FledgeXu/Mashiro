@@ -110,7 +110,7 @@ function App() {
             <SearchPage results={searchResult} />
           </Route>
           <Route path="/today">
-            <Today />
+            <Today bangumis={bangumiMeta.bangumis} />
           </Route>
           <Route
             path="/info/:id"
