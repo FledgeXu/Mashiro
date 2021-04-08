@@ -5,21 +5,41 @@ import Home from "./Home";
 import Subscription from "./Subscription";
 import History from "./History";
 import Today from "./Today";
-import React, { useEffect, useState } from "react";
-import { BangumiMeta } from "./type";
+import { useEffect, useState } from "react";
+import { Bangumi, BangumiMeta } from "./type";
 import BangumiInfo from "./BangumiInfo";
+import Fuse from "fuse.js";
+
 function App() {
   const sidebarIconSize = 42;
+  const META_FILE = "meta.json";
   const [bangumiMeta, setBangumiMeta] = useState<BangumiMeta>({ bangumis: [] });
+  const [fuse, setFuse] = useState<Fuse<Bangumi>>();
+  const [searchText, setSearchText] = useState<string>("");
+
+  const handlerSearch = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    console.log(fuse?.search(searchText));
+  };
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("/bangumi/meta.json");
+      const response = await fetch(META_FILE);
       const meta = await response.json();
       setBangumiMeta(meta);
       console.log(meta);
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fuse = new Fuse(bangumiMeta.bangumis, {
+      keys: ["name", "nameCN", "summary"],
+    });
+    setFuse(fuse);
+  }, [bangumiMeta]);
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -40,12 +60,24 @@ function App() {
                   <div className="control">
                     <input
                       className="input"
-                      type="text"
+                      inputMode="text"
+                      value={searchText}
+                      onChange={(e) => {
+                        setSearchText(e.target.value.trim());
+                      }}
                       placeholder="Find a repository"
                     />
                   </div>
                   <div className="control">
-                    <button className="button is-info">Search</button>
+                    <button
+                      className="button is-info"
+                      type="submit"
+                      onClick={(e) => {
+                        handlerSearch(e);
+                      }}
+                    >
+                      Search
+                    </button>
                   </div>
                 </div>
               </div>

@@ -10,7 +10,7 @@ export default function Home(props: HomeProps) {
   return (
     <div className="home">
       {bangumis.map((bangumi) => (
-        <div className="show-card">
+        <div className="show-card" key={bangumi.id}>
           <BangumiCard key={bangumi.id} bangumi={bangumi} />
         </div>
       ))}
