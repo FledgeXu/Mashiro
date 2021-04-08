@@ -11,8 +11,8 @@ export default function BangumiCard(props: BangumiCardProps) {
     return bangumi.nameCN === "" ? bangumi.name : bangumi.nameCN;
   };
   return (
-    <Link to={"/info/" + bangumi.id}>
-      <div className="card bangumi-card">
+    <div className="card bangumi-card">
+      <Link to={"/info/" + bangumi.id}>
         <header className="card-header">
           <p className="card-header-title">{bangumi.director}</p>
         </header>
@@ -24,20 +24,22 @@ export default function BangumiCard(props: BangumiCardProps) {
         <div className="card-content">
           <p className="title">{bangumiName()}</p>
         </div>
-        <footer className="card-footer">
-          <p className="card-footer-item">
-            <span>
-              <a href={bangumi.bangumiURL}>Bangumi</a>
-            </span>
-          </p>
-          <p className="card-footer-item">
-            <span>
-              {"Update Time: " +
-                new Date(bangumi.updateDate).toLocaleDateString()}
-            </span>
-          </p>
-        </footer>
-      </div>
-    </Link>
+      </Link>
+      <footer className="card-footer">
+        <p className="card-footer-item">
+          <span>
+            <a href={bangumi.bangumiURL} target="bangumi">
+              Bangumi
+            </a>
+          </span>
+        </p>
+        <p className="card-footer-item">
+          <span>
+            {"Update Time: " +
+              new Date(bangumi.updateDate).toLocaleDateString()}
+          </span>
+        </p>
+      </footer>
+    </div>
   );
 }
