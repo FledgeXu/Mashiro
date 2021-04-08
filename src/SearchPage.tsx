@@ -18,7 +18,7 @@ export default function SearchPage(props: SearchPageProps) {
           </div>
         ))}
       </div>
-      <p className="subtitle is-2">End</p>
+      <p className="subtitle is-3">End</p>
     </div>
   );
 }
