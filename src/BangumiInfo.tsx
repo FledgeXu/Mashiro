@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Route, useParams } from "react-router-dom";
+import { Link, Route, useHistory, useParams } from "react-router-dom";
 import { Bangumi } from "./type";
 import "./BangumiInfo.sass";
 import BangumiFiles from "./BangumiFiles";
@@ -17,6 +17,15 @@ export default function BangumiInfo(props: BangumiInfoProps) {
   const bangumiName = () => {
     return bangumi?.nameCN === "" ? bangumi?.name : bangumi?.nameCN;
   };
+  const history = useHistory();
+
+  // When people fresh info page, we should jump back to main page.
+  useEffect(() => {
+    if (props.bangumis.length === 0) {
+      history.push("/");
+    }
+  }, [history, props]);
+
   useEffect(() => {
     props.bangumis.forEach((value) => {
       //We should get Bangumi from id;

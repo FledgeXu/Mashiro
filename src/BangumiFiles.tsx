@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { BiFile } from "react-icons/bi";
-import { Link } from "react-router-dom";
 import { SourceFiles } from "./type";
 
 interface BangumiFilesProps {
